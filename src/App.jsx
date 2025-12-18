@@ -2,6 +2,8 @@ import React from 'react';
 import { NavigationProvider, useNavigation } from './navigation/NavigationContext.jsx';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import Contact from './components/Contact';
+import Locales from './components/Locales';
 
 // Placeholder components for other pages
 const PlaceholderPage = ({ title }) => (
@@ -21,9 +23,9 @@ const MainContent = () => {
     case 'order': return <PlaceholderPage title="Haz tu Pedido" />;
     case 'menu': return <PlaceholderPage title="Nuestra Carta" />;
     case 'promotions': return <PlaceholderPage title="Promociones" />;
-    case 'locations': return <PlaceholderPage title="Locales" />;
+    case 'locations': return <Locales />;
     case 'hours': return <PlaceholderPage title="Horarios" />;
-    case 'contact': return <PlaceholderPage title="Contacto" />;
+    case 'contact': return <Contact />;
     default: return <Home />;
   }
 };
@@ -39,7 +41,7 @@ const App = () => {
 
         {/* Simple Footer */}
         <footer className="bg-black text-white py-8 text-center text-sm">
-          <p>&copy; 2024 SushiSun. Todos los derechos reservados.</p>
+          <p>&copy; 2024 ApartSushi. Todos los derechos reservados.</p>
         </footer>
       </div>
     </NavigationProvider>
