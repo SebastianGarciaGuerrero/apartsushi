@@ -12,13 +12,13 @@ const Footer = () => {
         {/* Columna 1: Logo y RRSS Principales */}
         <div className="flex flex-col items-center md:items-start space-y-6">
           <img
-            src="/logo-apart-sushi.png" // Asegúrate de tener tu logo aquí
+            src="/logoapart.png"
             alt="Apart Sushi Logo"
             className="w-40 transform -rotate-12"
           />
           <div className="flex space-x-6">
             <a
-              href="https://instagram.com/tu_cuenta"
+              href="https://instagram.com/apartsushi"
               target="_blank"
               className="text-3xl hover:text-pink-500 transition-colors"
               title="Síguenos en Instagram"
@@ -26,7 +26,7 @@ const Footer = () => {
               <FaInstagram />
             </a>
             <a
-              href="https://wa.me/tu_numero"
+              href="https://api.whatsapp.com/send/?phone=56940498264&text&type=phone_number&app_absent=0"
               target="_blank"
               className="text-3xl hover:text-green-500 transition-colors"
               title="Pide por WhatsApp"
