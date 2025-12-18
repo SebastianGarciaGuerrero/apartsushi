@@ -5,6 +5,9 @@ import Home from './components/Home';
 import Contact from './components/Contact';
 import Locales from './components/Locales';
 import Footer from './components/Footer';
+import Menu from './components/Menu';
+import Hours from './components/Hours';
+import Promociones from './components/Promociones';
 
 // Placeholder components for other pages
 const PlaceholderPage = ({ title }) => (
@@ -22,10 +25,10 @@ const MainContent = () => {
   switch (activePage) {
     case 'home': return <Home />;
     case 'order': return <PlaceholderPage title="Haz tu Pedido" />;
-    case 'menu': return <PlaceholderPage title="Nuestra Carta" />;
-    case 'promotions': return <PlaceholderPage title="Promociones" />;
+    case 'menu': return <Menu />;
+    case 'promotions': return <Promociones />;
     case 'locations': return <Locales />;
-    case 'hours': return <PlaceholderPage title="Horarios" />;
+    case 'hours': return <Hours />;
     case 'contact': return <Contact />;
     default: return <Home />;
   }

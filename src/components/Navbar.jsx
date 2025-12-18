@@ -6,7 +6,6 @@ const Navbar = () => {
   const { navigate, activePage } = useNavigation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Definimos los items aquí para usarlos tanto en desktop como en mobile
   const NAV_ITEMS = [
     { id: "order", label: "Haz tu pedido" },
     { id: "menu", label: "Carta" },
@@ -16,23 +15,34 @@ const Navbar = () => {
     { id: "contact", label: "Contacto" },
   ];
 
-  // Función auxiliar para estilos de enlaces
-  const getLinkClass = (page, isMobile = false) => {
+  // --- CAMBIO 1: Lógica de resaltado ---
+  const getLinkClass = (id, isMobile = false) => {
     const baseClass =
       "text-xs font-bold uppercase tracking-wide cursor-pointer transition-colors";
     const mobileClass = isMobile
       ? "block w-full py-4 text-center border-b border-gray-50 hover:bg-gray-50"
       : "hover:text-red-600";
 
+    // Si la página activa es 'menu' o 'order', ambos botones se ponen rojos
+    const isMenuRelated =
+      (id === "menu" || id === "order") &&
+      (activePage === "menu" || activePage === "order");
+
     // Color activo vs inactivo
-    const colorClass = activePage === page ? "text-red-600" : "text-gray-800";
+    const colorClass =
+      activePage === id || isMenuRelated ? "text-red-600" : "text-gray-800";
 
     return `${baseClass} ${mobileClass} ${colorClass}`;
   };
 
-  // Función para navegar y cerrar el menú móvil al mismo tiempo
-  const handleMobileClick = (page) => {
-    navigate(page);
+  // --- CAMBIO 2: Lógica de navegación unificada ---
+  const handleNavigation = (id) => {
+    // Si presiona 'order' o 'menu', ambos lo llevan a 'menu'
+    if (id === "order" || id === "menu") {
+      navigate("menu");
+    } else {
+      navigate(id);
+    }
     setIsMenuOpen(false);
   };
 
@@ -42,13 +52,18 @@ const Navbar = () => {
         {/* Left: Logo */}
         <div
           className="flex items-center cursor-pointer"
-          onClick={() => navigate("home")}
+          onClick={() => handleNavigation("home")}
         >
           <div className="flex items-center gap-1">
-            <div className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center">
-              <div className="w-full h-1 bg-white/20"></div>
+            <div className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center overflow-hidden">
+              {/* Aquí podrías poner tu logo en lugar de este div */}
+              <img
+                src="/logoapart.png"
+                alt="Logo"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <span className="text-2xl font-black text-red-600 tracking-tighter">
+            <span className="text-2xl font-black text-red-600 tracking-tighter uppercase">
               Apart Sushi
             </span>
           </div>
@@ -59,7 +74,7 @@ const Navbar = () => {
           {NAV_ITEMS.map((item) => (
             <button
               key={item.id}
-              onClick={() => navigate(item.id)}
+              onClick={() => handleNavigation(item.id)}
               className={getLinkClass(item.id)}
             >
               {item.label}
@@ -72,14 +87,16 @@ const Navbar = () => {
           <Search className="w-5 h-5 cursor-pointer hover:text-red-600" />
           <User className="w-5 h-5 cursor-pointer hover:text-red-600" />
 
-          <div className="relative cursor-pointer hover:text-red-600 group">
+          <div
+            className="relative cursor-pointer hover:text-red-600 group"
+            onClick={() => handleNavigation("menu")} // El carrito también podría llevar a la carta
+          >
             <ShoppingCart className="w-5 h-5" />
             <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
               0
             </span>
           </div>
 
-          {/* Botón Hamburguesa / Cerrar (Visible solo en móvil) */}
           <button
             className="lg:hidden focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -94,13 +111,12 @@ const Navbar = () => {
       </div>
 
       {/* MENÚ MÓVIL DESPLEGABLE */}
-      {/* Se renderiza fuera del contenedor flex principal pero dentro del nav */}
       {isMenuOpen && (
-        <div className="absolute top-20 left-0 w-full bg-white shadow-lg border-t border-gray-100 flex flex-col lg:hidden animate-fade-in-down">
+        <div className="absolute top-20 left-0 w-full bg-white shadow-lg border-t border-gray-100 flex flex-col lg:hidden">
           {NAV_ITEMS.map((item) => (
             <button
               key={item.id}
-              onClick={() => handleMobileClick(item.id)}
+              onClick={() => handleNavigation(item.id)}
               className={getLinkClass(item.id, true)}
             >
               {item.label}

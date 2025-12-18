@@ -57,12 +57,11 @@ const Contact = () => {
             </h2>
             <div className="mt-4 border-l-4 border-red-600 pl-4">
               <p className="text-gray-500 leading-relaxed text-sm">
-                En APART SUSHI®, nos enorgullece ofrecer una oportunidad de
-                franquicia de alta calidad y rentabilidad. Intentamos
-                proporcionar a nuestros franquiciados las herramientas y el
-                conocimiento necesarios para dirigir un negocio con éxito y
-                animar a los propietarios a aprender las habilidades que les
-                permitirán trabajar y poseer varios restaurantes a la vez.
+                Convertirse en dueño de una franquicia APART SUSHI® es solo el comienzo.
+                Te acompañamos en el aprendizaje para que expandir tu presencia en el
+                mercado sea un camino seguro. ¿Quieres saber más? ¿Tienes comentarios
+                sobre nuestra propuesta o solo ganas de conversar? Ponte en contacto con
+                nuestro equipo; nos encanta conectar con personas apasionadas.
               </p>
             </div>
           </section>

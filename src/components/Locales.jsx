@@ -5,19 +5,11 @@ const Locales = () => {
     {
       nombre: "VILLA ALEMANA",
       telefonos: "2127783 | 3187280",
-      email: "quilpue@sushisun.cl",
+      email: "@apartsushi",
       direccion: "Almirante Latorre #309, Villa Alemana.",
       imgLocal: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=600",
       imgMapa: "https://upload.wikimedia.org/wikipedia/commons/e/e4/Google_Maps_icon_%282020%29.png" // Reemplazar con iframe o imagen de mapa real
     },
-    {
-      nombre: "ÁLVAREZ",
-      telefonos: "3197797 | 3275429",
-      email: "alvarez@sushisun.cl",
-      direccion: "Álvarez 642, Viña del Mar",
-      imgLocal: "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80&w=600",
-      imgMapa: "https://upload.wikimedia.org/wikipedia/commons/e/e4/Google_Maps_icon_%282020%29.png"
-    }
   ];
 
   return (
@@ -36,7 +28,7 @@ const Locales = () => {
       <div className="max-w-7xl mx-auto px-4 py-16 space-y-20">
         {sucursales.map((local, index) => (
           <div key={index} className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-            
+
             {/* Columna 1: Información */}
             <div className="flex flex-col space-y-4">
               <header>
@@ -52,8 +44,8 @@ const Locales = () => {
                 <p className="text-gray-400 text-sm">{local.direccion}</p>
               </div>
 
-              <a 
-                href="#" 
+              <a
+                href="#"
                 className="text-3xl font-serif italic text-gray-800 hover:text-red-600 transition-colors w-fit pt-4"
               >
                 Comprar aquí
@@ -62,9 +54,9 @@ const Locales = () => {
 
             {/* Columna 2: Foto del Local */}
             <div className="h-64 overflow-hidden shadow-md">
-              <img 
-                src={local.imgLocal} 
-                alt={`Local ${local.nombre}`} 
+              <img
+                src={local.imgLocal}
+                alt={`Local ${local.nombre}`}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
@@ -74,9 +66,9 @@ const Locales = () => {
               {/* Aquí puedes integrar un iframe de Google Maps */}
               <div className="w-full h-full flex items-center justify-center bg-blue-50 relative">
                 <span className="text-xs text-gray-400 absolute top-2 left-2 uppercase font-bold tracking-widest">Google Maps</span>
-                <img 
-                  src="https://www.mapas-del-mundo.com/img/google-maps.jpg" 
-                  alt="Mapa" 
+                <img
+                  src="https://www.mapas-del-mundo.com/img/google-maps.jpg"
+                  alt="Mapa"
                   className="w-full h-full object-cover opacity-80"
                 />
                 <div className="absolute bg-white px-4 py-1 rounded-full shadow-lg border border-red-500 text-xs font-bold text-red-600">
