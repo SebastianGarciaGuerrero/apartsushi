@@ -3,10 +3,10 @@ import React from 'react';
 const Locales = () => {
   const sucursales = [
     {
-      nombre: "QUILPUÉ",
+      nombre: "VILLA ALEMANA",
       telefonos: "2127783 | 3187280",
       email: "quilpue@sushisun.cl",
-      direccion: "Errázuriz 837, Quilpué",
+      direccion: "Almirante Latorre #309, Villa Alemana.",
       imgLocal: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=600",
       imgMapa: "https://upload.wikimedia.org/wikipedia/commons/e/e4/Google_Maps_icon_%282020%29.png" // Reemplazar con iframe o imagen de mapa real
     },

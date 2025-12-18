@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Contact from './components/Contact';
 import Locales from './components/Locales';
+import Footer from './components/Footer';
 
 // Placeholder components for other pages
 const PlaceholderPage = ({ title }) => (
@@ -38,11 +39,7 @@ const App = () => {
         <main className="flex-grow">
           <MainContent />
         </main>
-
-        {/* Simple Footer */}
-        <footer className="bg-black text-white py-8 text-center text-sm">
-          <p>&copy; 2024 ApartSushi. Todos los derechos reservados.</p>
-        </footer>
+        <Footer />
       </div>
     </NavigationProvider>
   );
